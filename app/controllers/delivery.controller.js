@@ -304,6 +304,8 @@ exports.updateDelivery = (req, res) =>{
           return;
         }
 
+        io.to(delivery.delivery_id).emit("delivery_updated", delivery);
+
         res.send({ message: "Delivery was updated successfully!" , delivery:delivery});
 
       });
@@ -362,6 +364,7 @@ exports.updateDelivery = (req, res) =>{
               res.status(500).send({ message: err });
               return;
             }
+            io.to(delivery.delivery_id).emit("delivery_updated", delivery);
             res.send({ message: "Delivery was updated successfully!" , delivery:delivery});
 
           });
