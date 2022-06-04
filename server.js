@@ -8,8 +8,8 @@ const app = express();
 dotenv.config();
 
 var corsOptions = {
-  origin: "http://localhost:4200"
-  //origin: "*"
+  //origin: "https://phenomenal-taiyaki-148579.netlify.app"
+  origin: "*"
 };
 
 app.use(cors(corsOptions));
